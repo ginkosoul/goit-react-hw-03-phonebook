@@ -1,0 +1,35 @@
+.wrapper{
+    padding-block: 16px;
+}
+.input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 4px 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin-left: auto;
+}
+.btn:hover,
+.btn:focus {
+    opacity: 0.8;
+}
+
