@@ -31,7 +31,7 @@ class App extends Component {
     if (id)
       this.setState(pValue => ({
         ...pValue,
-        contacts: pValue.contacts.id(e => e.id !== id),
+        contacts: pValue.contacts.filter(e => e.id !== id),
       }));
   };
   handleSubmit = value => {
