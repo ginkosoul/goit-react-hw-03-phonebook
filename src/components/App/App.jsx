@@ -7,15 +7,19 @@ import css from '../App/App.module.css';
 import ContactList from 'components/ContactList/ContactList';
 
 class App extends Component {
+  static LS_KEY = 'phonebook-data';
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', phone: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', phone: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', phone: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', phone: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
   };
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem(App.LS_KEY)) || [];
+    this.setState(pv => ({ ...pv, contacts }));
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts === this.state.contacts) return;
+    localStorage.setItem(App.LS_KEY, JSON.stringify(this.state.contacts));
+  }
   handleFilterInput = e => {
     const filter = e.target.value.trim();
     this.setState(pValue => ({ ...pValue, filter }));
